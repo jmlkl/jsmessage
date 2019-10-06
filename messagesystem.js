@@ -14,6 +14,7 @@ function messageSystem() {
         _div.id = this.messageIdPrefix + _time;
 
         var _element = this.messageMasterElement.appendChild( _div );
+        //var _element = this.messageMasterElement.insertBefore(_div , this.messageMasterElement.childNodes[0] )    //insert to first (recent & old delete are then reversed!)
     };
     this.DeleteRecentMessage = function (){
         if( this.messageMasterElement.childNodes.length > 0 ) this.messageMasterElement.removeChild( this.messageMasterElement.childNodes[ this.messageMasterElement.childNodes.length-1] )
@@ -31,14 +32,14 @@ msgSys.messageIdPrefix = "message";
 
 
 
-function AddMessage() {
-    msgSys.AddMessage("Hello!" + Date.now() );
+function AddMessage( msgSystem ) {
+    msgSystem.AddMessage("Hello!" + Date.now() );
 }
 
-function DeleteMessageOld() {
-    msgSys.DeleteOldMessage();
+function DeleteMessageOld(msgSystem) {
+    msgSystem.DeleteOldMessage();
 }
 
-function DeleteMessageRecent() {
-    msgSys.DeleteRecentMessage();
+function DeleteMessageRecent(msgSystem) {
+    msgSystem.DeleteRecentMessage();
 }
