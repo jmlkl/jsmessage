@@ -10,6 +10,7 @@
             <input type="button" value="Delete old" onclick="DeleteMessageOld(msgSys)">
             <input type="button" value="Delete recent" onclick="DeleteMessageRecent(msgSys)">
             <input type="button" value="Debug data" onclick="DebugReport()">
+            <input type="button" value="Add and remove after 2s" onclick="AddMessage(msgSys, 'This div lifetime is 2s!' ,2000)">
         </p>
     </div>
     <div id="messageAreaDemo" class="messageArea"></div>
@@ -17,5 +18,22 @@
     <div id="debugLog"></div>
 
     <script src="messagesystem.js"></script>
+    <script> var msgSys = new messageSystem();
+
+        msgSys.messageMasterElement = document.getElementById("messageAreaDemo");
+        msgSys.messageClass = "message";
+        msgSys.messageIdPrefix = "message";
+        
+        function DebugReport() {
+
+            let str = "";
+            msgSys.messages.forEach(element => {    //hardcoded to example
+                str += JSON.stringify( element );
+            });
+
+            document.getElementById("debugLog").innerHTML = str;
+
+        }
+    </script>
 </body>
 </html>
