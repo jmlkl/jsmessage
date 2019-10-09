@@ -7,10 +7,10 @@
     <div id="demoControls">
         <p>
             <input type="button" value="Add" onclick="AddMessage(msgSys)">
-            <input type="button" value="Delete old" onclick="DeleteMessageOld(msgSys)">
-            <input type="button" value="Delete recent" onclick="DeleteMessageRecent(msgSys)">
+            <input type="button" value="Delete old" onclick="msgSys.DeleteOld()">
+            <input type="button" value="Delete recent" onclick="msgSys.DeleteRecent()">
             <input type="button" value="Debug data" onclick="DebugReport()">
-            <input type="button" value="Add and remove after 2s" onclick="AddMessage(msgSys, 'This div lifetime is 2s!' ,2000)">
+            <input type="button" value="Add and remove after 2s" onclick="msgSys.AddMessage( 'This div lifetime is 2s!' ,2000, 'messageW')">
         </p>
     </div>
     <div id="messageAreaDemo" class="messageArea"></div>
